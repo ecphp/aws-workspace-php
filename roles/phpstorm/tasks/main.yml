@@ -1,0 +1,40 @@
+- name: Check if PhpStorm is already installed
+  stat:
+    path: "{{ phpstorm_bin }}"
+  register: __phpstorm_bin
+  tags:
+    - phpstorm
+
+- name: Download PhpStorm archive
+  get_url:
+    url: https://download.jetbrains.com/webide/PhpStorm-2019.1.1.tar.gz
+    dest: /tmp/phpstorm.tar.gz
+    checksum: "sha256:39500e7f605662b8d59af29c94f295cf978dc7e8b3ea060ec27106c9b9821c80"
+  when: not __phpstorm_bin.stat.exists
+  tags:
+    - phpstorm
+
+- name: Ensures /opt/phpstorm folder exists
+  file:
+    path: /opt/phpstorm
+    state: directory
+  tags:
+    - phpstorm
+  become: true
+
+- name: Extract PhpStorm archive
+  unarchive:
+    src: /tmp/phpstorm.tar.gz
+    dest: "{{ phpstorm_path }}"
+    remote_src: yes
+  when: not __phpstorm_bin.stat.exists
+  tags:
+    - phpstorm
+  become: true
+
+- name: Remove PhpStorm archive
+  file:
+    path: /tmp/phpstorm.tar.gz
+    state: absent
+  tags:
+    - phpstorm
