@@ -32,8 +32,7 @@
 
 - name: Remove Composer installer
   file:
-    path: /tmp/installer
+    path: /tmp/composer-installer.php
     state: absent
-  when: not __composer_bin.stat.exists
   tags:
     - composer
