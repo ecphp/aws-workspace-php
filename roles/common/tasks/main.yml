@@ -1,0 +1,7 @@
+- name: Enable amazon-linux-extras packages
+  shell: amazon-linux-extras enable {{ item }}
+  with_items:
+    - httpd_modules
+    - lamp-mariadb10.2-php7.2
+    - php7.2
+  become: true
