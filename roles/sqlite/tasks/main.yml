@@ -1,0 +1,10 @@
+- name: Install SQLite packages
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: latest
+  with_items:
+    - sqlite
+  tags:
+    - sqlite
+  become: true
