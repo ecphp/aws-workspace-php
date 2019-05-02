@@ -1,0 +1,21 @@
+- name: Install PHP packages
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: latest
+  with_items:
+    - php-cli
+    - php-common
+    - php-dbg
+    - php-gd
+    - php-gmp
+    - php-intl
+    - php-json
+    - php-mbstring
+    - php-pdo
+    - php-soap
+    - php-xml
+    - php-pecl-zip
+  tags:
+    - php
+  become: true
