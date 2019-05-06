@@ -1,0 +1,2 @@
+[workspace]
+myworkspace ansible_host=foo.example.com ansible_user=ec2-user
