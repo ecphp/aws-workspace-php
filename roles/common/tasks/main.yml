@@ -5,3 +5,12 @@
     - lamp-mariadb10.2-php7.2
     - php7.2
   become: true
+
+- name: Install common packages
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: latest
+  with_items:
+    - nano
+  become: true
