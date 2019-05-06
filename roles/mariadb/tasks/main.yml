@@ -1,0 +1,10 @@
+- name: Install MariaDB packages
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: latest
+  with_items:
+    - mariadb-server
+  tags:
+    - mariadb
+  become: true
