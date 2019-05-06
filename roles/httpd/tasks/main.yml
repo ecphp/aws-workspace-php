@@ -5,7 +5,6 @@
     state: latest
   with_items:
     - httpd
-    - mod_ssl
   tags:
     - httpd
   become: true
