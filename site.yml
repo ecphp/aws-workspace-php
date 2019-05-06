@@ -1,0 +1,10 @@
+- hosts: all
+  roles:
+    - common
+
+- hosts: workspace
+  roles:
+    - composer
+    - php
+    - phpstorm
+    - sqlite
