@@ -8,3 +8,13 @@
   tags:
     - mariadb
   become: true
+
+- name: Enable and start MariaDB service
+  systemd:
+    name: mariadb
+    enabled: yes
+    masked: no
+    state: started
+  tags:
+    - mariadb
+  become: true

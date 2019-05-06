@@ -5,6 +5,17 @@
     state: latest
   with_items:
     - httpd
+    - mod_ssl
+  tags:
+    - httpd
+  become: true
+
+- name: Enable and start httpd service
+  systemd:
+    name: httpd
+    enabled: yes
+    masked: no
+    state: started
   tags:
     - httpd
   become: true
