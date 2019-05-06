@@ -5,6 +5,7 @@
 - hosts: workspace
   roles:
     - composer
+    - mariadb
     - php
     - phpstorm
     - sqlite
