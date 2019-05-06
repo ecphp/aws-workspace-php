@@ -4,6 +4,7 @@
     update_cache: yes
     state: latest
   with_items:
+    - php-bcmath
     - php-cli
     - php-common
     - php-dbg
@@ -11,10 +12,16 @@
     - php-gmp
     - php-intl
     - php-json
+    - php-ldap
     - php-mbstring
+    - php-mysqlnd
+    - php-opcache
     - php-pdo
     - php-soap
     - php-xml
+    - php-pecl-apcu
+    - php-pecl-igbinary
+    - php-pecl-redis
     - php-pecl-zip
   tags:
     - php
