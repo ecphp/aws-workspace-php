@@ -8,5 +8,6 @@
     - httpd
     - mariadb
     - php
+    - php-fpm
     - phpstorm
     - sqlite

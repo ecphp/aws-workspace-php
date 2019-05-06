@@ -1,0 +1,20 @@
+- name: Install php-fpm package
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: latest
+  with_items:
+    - php-fpm
+  tags:
+    - php-fpm
+  become: true
+
+- name: Enable and start php-fpm service
+  systemd:
+    name: php-fpm
+    enabled: yes
+    masked: no
+    state: started
+  tags:
+    - php-fpm
+  become: true
