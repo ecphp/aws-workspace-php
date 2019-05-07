@@ -14,7 +14,7 @@
   tags:
     - phpstorm
 
-- name: Ensures /opt/phpstorm folder exists
+- name: Ensure /opt/phpstorm folder exists
   file:
     path: /opt/phpstorm
     state: directory
@@ -42,6 +42,6 @@
 - name: Copy menu launcher
   copy:
     src: jetbrains-phpstorm.desktop
-    dest: "{{ home_directory }}/.local/share/applications/jetbrains-phpstorm.desktop"
+    dest: "{{ home_directory }}/.local/share/applications/"
   tags:
     - phpstorm
