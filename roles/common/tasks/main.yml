@@ -1,3 +1,15 @@
+- name: Register user home directory
+  command: echo ~
+  register: home_directory
+  tags:
+    - always
+
+- name: Store user home directory globally
+  set_fact:
+    home_directory: "{{ home_directory.stdout }}"
+  tags:
+    - always
+
 - name: Enable amazon-linux-extras packages
   shell: amazon-linux-extras enable {{ item }}
   with_items:
