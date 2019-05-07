@@ -12,5 +12,10 @@
     update_cache: yes
     state: latest
   with_items:
+    - curl
+    - git
     - nano
+    - rsync
+    - unzip
+    - wget
   become: true
