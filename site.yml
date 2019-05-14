@@ -4,6 +4,7 @@
 
 - hosts: workspace
   roles:
+    - app
     - composer
     - httpd
     - mariadb
