@@ -1,0 +1,18 @@
+Listen 8082
+Listen 8092
+
+<VirtualHost *:8082>
+    ServerName backend.local
+    DocumentRoot "{{ home_directory }}/projects/app/backend/app/public"
+    <Directory "{{ home_directory }}/projects/app/backend/app/public">
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:8092>
+    ServerName frontend.local
+    DocumentRoot "{{ home_directory }}/projects/app/frontend/app/public"
+    <Directory "{{ home_directory }}/projects/app/frontend/app/public">
+        Require all granted
+    </Directory>
+</VirtualHost>

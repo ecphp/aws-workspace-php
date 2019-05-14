@@ -1,0 +1,23 @@
+- name: Ensure backend webroot exists
+  file:
+    path: "{{ home_directory }}/projects/app/backend/app/public"
+    state: directory
+  tags:
+    - app
+
+- name: Ensure frontend webroot exists
+  file:
+    path: "{{ home_directory }}/projects/app/frontend/app/public"
+    state: directory
+  tags:
+    - app
+
+- name: Copy Single-Page Application configuration
+  template:
+    src: app.conf.j2
+    dest: /etc/httpd/conf.d/app.conf
+  notify:
+    - Restart httpd
+  tags:
+    - app
+  become: true
