@@ -11,7 +11,7 @@
 
 - name: Enable and start php-fpm service
   systemd:
-    name: php-fpm
+    name: "{{ php_version }}-php-fpm"
     enabled: yes
     masked: no
     state: started
