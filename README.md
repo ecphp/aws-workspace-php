@@ -7,7 +7,7 @@ This Ansible playbook installs a working PHP development environment on
 
 It currently provides:
 
-* PHP 7.2
+* PHP 5.4 to 7.2 (default: 7.2)
 * Git
 * Apache 2.4
 * MariaDB 10.2
