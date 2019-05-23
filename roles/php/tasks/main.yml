@@ -4,25 +4,29 @@
     update_cache: yes
     state: latest
   with_items:
-    - php-bcmath
-    - php-cli
-    - php-common
-    - php-dbg
-    - php-gd
-    - php-gmp
-    - php-intl
-    - php-json
-    - php-ldap
-    - php-mbstring
-    - php-mysqlnd
-    - php-opcache
-    - php-pdo
-    - php-soap
-    - php-xml
-    - php-pecl-apcu
-    - php-pecl-igbinary
-    - php-pecl-redis
-    - php-pecl-zip
+    - php
+    - "{{ php_version }}-php-bcmath"
+    - "{{ php_version }}-php-cli"
+    - "{{ php_version }}-php-common"
+    - "{{ php_version }}-php-dbg"
+    - "{{ php_version }}-php-gd"
+    - "{{ php_version }}-php-gmp"
+    - "{{ php_version }}-php-intl"
+    - "{{ php_version }}-php-json"
+    - "{{ php_version }}-php-ldap"
+    - "{{ php_version }}-php-mbstring"
+    - "{{ php_version }}-php-mysqlnd"
+    - "{{ php_version }}-php-opcache"
+    - "{{ php_version }}-php-pdo"
+    - "{{ php_version }}-php-soap"
+    - "{{ php_version }}-php-sodium"
+    - "{{ php_version }}-php-xml"
+    - "{{ php_version }}-php-pecl-apcu"
+    - "{{ php_version }}-php-pecl-igbinary"
+    - "{{ php_version }}-php-pecl-mongodb"
+    - "{{ php_version }}-php-pecl-redis"
+    - "{{ php_version }}-php-pecl-xdebug"
+    - "{{ php_version }}-php-pecl-zip"
   tags:
     - php
   become: true

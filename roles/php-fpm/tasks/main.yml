@@ -4,7 +4,7 @@
     update_cache: yes
     state: latest
   with_items:
-    - php-fpm
+    - "{{ php_version }}-php-fpm"
   tags:
     - php-fpm
   become: true
