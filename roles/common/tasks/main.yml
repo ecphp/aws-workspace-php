@@ -13,19 +13,10 @@
 - name: Enable contrib repository
   yum:
     name: "{{ item }}"
-    update_cache: yes
     state: latest
   with_items:
     - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     - http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-  become: true
-
-- name: Increase contrib repository priority
-  ini_file:
-    path: /etc/yum.repos.d/remi-{{ php_version }}.repo
-    section: remi-{{ php_version }}
-    option: priority
-    value: 9
   become: true
 
 - name: Install common packages
