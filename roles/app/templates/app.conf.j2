@@ -4,9 +4,13 @@ Listen 8092
 <VirtualHost *:8082>
     ServerName backend.local
     DocumentRoot "{{ home_directory }}/projects/app/backend/app/public"
+    DirectoryIndex index.html index.php
     <Directory "{{ home_directory }}/projects/app/backend/app/public">
         Require all granted
     </Directory>
+    <FilesMatch \.php$>
+        SetHandler "proxy:fcgi://127.0.0.1:{{ php_fpm_port }}"
+    </FilesMatch>
 </VirtualHost>
 
 <VirtualHost *:8092>
