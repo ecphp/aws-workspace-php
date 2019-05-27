@@ -4,7 +4,7 @@
     update_cache: yes
     state: latest
   with_items:
-    - php
+    - "{{ php_version }}"
     - "{{ php_version }}-php-bcmath"
     - "{{ php_version }}-php-cli"
     - "{{ php_version }}-php-common"
