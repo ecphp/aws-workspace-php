@@ -1,1 +1,2 @@
 php_version: php72
+php_fpm_port: 9072
