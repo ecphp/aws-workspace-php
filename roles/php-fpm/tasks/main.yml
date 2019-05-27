@@ -9,12 +9,32 @@
     - php-fpm
   become: true
 
+- name: Update php-fpm port
+  ini_file:
+    path: /etc/opt/remi/{{ php_version }}/php-fpm.d/www.conf
+    section: www
+    option: listen
+    value: 127.0.0.1:{{ php_fpm_port }}
+  tags:
+    - php-fpm
+  become: true
+
+- name: Create children processes on demand
+  ini_file:
+    path: /etc/opt/remi/{{ php_version }}/php-fpm.d/www.conf
+    section: www
+    option: pm
+    value: ondemand
+  tags:
+    - php-fpm
+  become: true
+
 - name: Enable and start php-fpm service
   systemd:
     name: "{{ php_version }}-php-fpm"
     enabled: yes
     masked: no
-    state: started
+    state: restarted
   tags:
     - php-fpm
   become: true
