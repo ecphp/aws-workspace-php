@@ -19,7 +19,6 @@
     - "{{ php_version }}-php-opcache"
     - "{{ php_version }}-php-pdo"
     - "{{ php_version }}-php-soap"
-    - "{{ php_version }}-php-sodium"
     - "{{ php_version }}-php-xml"
     - "{{ php_version }}-php-pecl-apcu"
     - "{{ php_version }}-php-pecl-igbinary"
@@ -27,6 +26,16 @@
     - "{{ php_version }}-php-pecl-redis"
     - "{{ php_version }}-php-pecl-xdebug"
     - "{{ php_version }}-php-pecl-zip"
+  tags:
+    - php
+  become: true
+
+- name: Install Sodium extension when available
+  yum:
+    name: "{{ php_version }}-php-sodium"
+    update_cache: yes
+    state: latest
+  ignore_errors: yes
   tags:
     - php
   become: true
