@@ -7,16 +7,19 @@ This Ansible playbook installs a working PHP development environment on
 
 It currently provides:
 
-* PHP 5.4 to 7.2 (default: 7.2)
+* PHP 5.4 to 7.2 (default: 7.2) and PHP-FPM
 * Git
 * Apache 2.4
-* MariaDB 10.2
+* MariaDB 5.5
 * SQLite 3
 * Composer
 * PhpStorm (license not included)
 
+PHP packages are provided by [Remi's RPM repository](https://rpms.remirepo.net/).
+
 ## Usage
 
 * Create a `hosts` file listing your [inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
+* Update the `php_version` and `php_fpm_port` values in `roles/common/defaults/main.yml` according to your needs.
 * Execute the playbook: `ansible-playbook -i hosts site.yml --ask-become-pass`.
 * That's it.
