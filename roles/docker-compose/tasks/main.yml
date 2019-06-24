@@ -1,0 +1,16 @@
+- name: Check if Docker Compose is already installed
+  stat:
+    path: "{{ docker_compose_bin }}"
+  register: __docker_compose_bin
+  tags:
+    - docker-compose
+
+- name: Download Docker Compose archive
+  get_url:
+    url: https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64
+    dest: "{{ docker_compose_bin }}"
+    mode: '755'
+  when: not __docker_compose_bin.stat.exists
+  tags:
+    - docker-compose
+  become: true
