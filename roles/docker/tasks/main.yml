@@ -1,0 +1,20 @@
+- name: Install Docker
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: latest
+  with_items:
+    - docker
+  tags:
+    - docker
+  become: true
+
+- name: Enable and start Docker service
+  systemd:
+    name: docker
+    enabled: yes
+    masked: no
+    state: started
+  tags:
+    - docker
+  become: true
