@@ -6,6 +6,8 @@
   roles:
     - app
     - composer
+    - docker
+    - docker-compose
     - httpd
     - mariadb
     - php
