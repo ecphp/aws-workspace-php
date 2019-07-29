@@ -7,9 +7,9 @@
 
 - name: Download PhpStorm archive
   get_url:
-    url: https://download.jetbrains.com/webide/PhpStorm-2019.1.1.tar.gz
+    url: https://download.jetbrains.com/webide/PhpStorm-2019.2.tar.gz
     dest: /tmp/phpstorm.tar.gz
-    checksum: "sha256:39500e7f605662b8d59af29c94f295cf978dc7e8b3ea060ec27106c9b9821c80"
+    checksum: "sha256:a7b81953467fc1c1b3f270bd905018b40243d9f2aeb11b70e648489b843db84f"
   when: not __phpstorm_bin.stat.exists
   tags:
     - phpstorm
