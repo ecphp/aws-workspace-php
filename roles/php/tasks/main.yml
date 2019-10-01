@@ -39,3 +39,10 @@
   tags:
     - php
   become: true
+
+- name: Update bashrc to load the module
+  lineinfile:
+    dest: "{{ home_directory }}/.bashrc"
+    line: "module load {{ php_version }}"
+  tags:
+    - php
