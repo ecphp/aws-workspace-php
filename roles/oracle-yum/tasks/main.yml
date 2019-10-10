@@ -1,0 +1,41 @@
+- name: Download Oracle GPG key
+  get_url:
+    url: https://yum.oracle.com/RPM-GPG-KEY-oracle-ol7
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+  tags:
+    - oracle-yum
+  become: true
+
+- name: Copy ol7.repo config
+  copy:
+    src: ol7.repo
+    dest: /etc/yum.repos.d/ol7.repo
+  tags:
+    - oracle-yum
+  become: true
+
+- name: Install oraclelinux-release-el7
+  yum:
+    name: oraclelinux-release-el7
+    update_cache: yes
+    state: latest
+  tags:
+    - oracle-yum
+  become: true
+
+- name: Remove ol7.repo config
+  file:
+    path: /etc/yum.repos.d/ol7.repo
+    state: absent
+  tags:
+    - oracle-yum
+  become: true
+
+- name: Install oracle-release-el7
+  yum:
+    name: oracle-release-el7
+    update_cache: yes
+    state: latest
+  tags:
+    - oracle-yum
+  become: true

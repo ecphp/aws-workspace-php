@@ -1,0 +1,8 @@
+- name: Install OCI8 module
+  yum:
+    name: "{{ php_version }}-php-oci8"
+    update_cache: yes
+    state: latest
+  tags:
+    - php-oci
+  become: true

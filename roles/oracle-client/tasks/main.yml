@@ -1,0 +1,8 @@
+- name: Install oracle-instantclient
+  yum:
+    name: oracle-instantclient19.3-basic
+    update_cache: yes
+    state: latest
+  tags:
+    - oracle-client
+  become: true
