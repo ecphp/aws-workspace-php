@@ -12,5 +12,6 @@
     - mariadb
     - php
     - php-fpm
+    - php-oci
     - phpstorm
     - sqlite
