@@ -8,6 +8,7 @@ This Ansible playbook installs a working PHP development environment on
 It currently provides:
 
 * PHP 5.4 to 7.3 NTS (default: 7.2) and PHP-FPM
+* PHP OCI8 extension and Oracle Instant Client
 * Git
 * Apache 2.4
 * MariaDB 5.5
