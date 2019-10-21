@@ -18,3 +18,12 @@
   tags:
     - docker
   become: true
+
+- name: Add the user to the docker group
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: true
+  tags:
+    - docker
+  become: true
