@@ -7,20 +7,19 @@
 
 - name: Download PhpStorm archive
   get_url:
-    url: https://download.jetbrains.com/webide/PhpStorm-2019.2.1.tar.gz
+    url: "{{ phpstorm_download_url }}"
     dest: /tmp/phpstorm.tar.gz
-    checksum: "sha256:4f102a1dcfad15d27b0674465bf5f5cd628388ee98bf5c0d64be1954cc4529d4"
+    checksum: "{{ phpstorm_checksum }}"
   when: not __phpstorm_bin.stat.exists
   tags:
     - phpstorm
 
-- name: Ensure /opt/phpstorm folder exists
+- name: Ensure phpstorm folder exists
   file:
-    path: /opt/phpstorm
+    path: "{{ phpstorm_path }}"
     state: directory
   tags:
     - phpstorm
-  become: true
 
 - name: Extract PhpStorm archive
   unarchive:
@@ -30,7 +29,6 @@
   when: not __phpstorm_bin.stat.exists
   tags:
     - phpstorm
-  become: true
 
 - name: Remove PhpStorm archive
   file:
@@ -39,9 +37,9 @@
   tags:
     - phpstorm
 
-- name: Copy menu launcher
-  copy:
-    src: jetbrains-phpstorm.desktop
-    dest: "{{ home_directory }}/.local/share/applications/"
+- name: Copy launcher
+  template:
+    src: jetbrains-phpstorm.desktop.j2
+    dest: "{{ home_directory }}/.local/share/applications/jetbrains-phpstorm.desktop"
   tags:
     - phpstorm
