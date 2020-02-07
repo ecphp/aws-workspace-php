@@ -37,6 +37,13 @@
   tags:
     - phpstorm
 
+- name: Ensure launcher folder exists
+  file:
+    path: "{{ home_directory }}/.local/share/applications"
+    state: directory
+  tags:
+    - phpstorm
+
 - name: Copy launcher
   template:
     src: jetbrains-phpstorm.desktop.j2
