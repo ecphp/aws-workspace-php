@@ -7,7 +7,7 @@ This Ansible playbook installs a working PHP development environment on
 
 It currently provides:
 
-* PHP 5.4 to 7.3 NTS (default: 7.2) and PHP-FPM
+* PHP 5.4 to 7.4 NTS (default: 7.4) and PHP-FPM
 * PHP OCI8 extension and Oracle Instant Client
 * Git
 * Apache 2.4
@@ -15,7 +15,7 @@ It currently provides:
 * SQLite 3
 * Composer
 * PhpStorm (license not included)
-* Docker 18.06.1-ce and Docker Compose 1.24.0
+* Docker and Docker Compose
 
 PHP packages are provided by [Remi's RPM repository](https://rpms.remirepo.net/).
 
