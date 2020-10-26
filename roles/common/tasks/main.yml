@@ -1,6 +1,7 @@
 - name: Register user home directory
   command: echo ~
   register: home_directory
+  changed_when: false
   tags:
     - always
 
