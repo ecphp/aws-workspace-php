@@ -1,9 +1,5 @@
 - hosts: all
   roles:
-    - common
-
-- hosts: workspace
-  roles:
     - app
     - composer
     - docker
