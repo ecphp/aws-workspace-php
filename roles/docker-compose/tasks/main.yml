@@ -5,12 +5,26 @@
   tags:
     - docker-compose
 
+- name: Ensure destination folder exists
+  file:
+    path: "{{ composer_path }}"
+    state: directory
+  tags:
+    - docker-compose
+
 - name: Download Docker Compose archive
   get_url:
-    url: https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
     dest: "{{ docker_compose_bin }}"
     mode: '755'
   when: not __docker_compose_bin.stat.exists
+  tags:
+    - docker-compose
+
+- name: Remove global Docker Compose bin if it exists
+  file:
+    path: /usr/local/bin/docker-compose
+    state: absent
   tags:
     - docker-compose
   become: true

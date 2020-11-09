@@ -23,12 +23,18 @@
   tags:
     - composer
 
+- name: Ensure destination folder exists
+  file:
+    path: "{{ composer_path }}"
+    state: directory
+  tags:
+    - composer
+
 - name: Install Composer
   command: '{{ php_version }} /tmp/composer-installer.php --install-dir="{{ composer_path }}" --filename="composer"'
   when: not __composer_bin.stat.exists
   tags:
     - composer
-  become: true
 
 - name: Remove Composer installer
   file:
@@ -36,3 +42,11 @@
     state: absent
   tags:
     - composer
+
+- name: Remove global Composer bin if it exists
+  file:
+    path: /usr/local/bin/composer
+    state: absent
+  tags:
+    - composer
+  become: true

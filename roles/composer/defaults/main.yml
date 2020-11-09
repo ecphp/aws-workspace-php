@@ -1,2 +1,2 @@
-composer_path: /usr/local/bin
-composer_bin: /usr/local/bin/composer
+composer_path: "{{ home_directory }}/.local/bin"
+composer_bin: "{{ home_directory }}/.local/bin/composer"
