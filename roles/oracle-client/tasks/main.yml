@@ -1,6 +1,15 @@
-- name: Install oracle-instantclient
+- name: Install oracle-instantclient-release-el7
   yum:
-    name: oracle-instantclient19.3-basic
+    name: oracle-instantclient-release-el7
+    update_cache: yes
+    state: latest
+  tags:
+    - oracle-client
+  become: true
+
+- name: Install oracle-instantclient-basic
+  yum:
+    name: oracle-instantclient-basic
     update_cache: yes
     state: latest
   tags:
