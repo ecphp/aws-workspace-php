@@ -3,6 +3,7 @@
     name: "{{ item }}"
     update_cache: yes
     state: latest
+    disable_plugin: priorities
   with_items:
     - "{{ php_version }}"
     - "{{ php_version }}-php-bcmath"
