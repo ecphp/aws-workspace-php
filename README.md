@@ -28,3 +28,13 @@ PHP packages are provided by [Remi's RPM repository](https://rpms.remirepo.net/)
 * If you want to install the environment on the local workspace only, you do not need to create a `hosts` file; simply replace `hosts` by `hosts.localhost` in the line below.
 * Execute the playbook: `ansible-playbook -i hosts site.yml --ask-pass --ask-become-pass`.
 * After execution of the playbook, you may need to log out then log in for the PhpStorm entry to appear in the Applications menu.
+
+## Optional
+
+You can remove 'roles' you do not need by editing the `site.yml` file.
+
+You can also limit the playbook execution to a specific role by using its tag, for instance:
+
+```
+ansible-playbook -i hosts.localhost -t docker site.yml --ask-become-pass
+```
