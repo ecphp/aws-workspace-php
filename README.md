@@ -2,6 +2,8 @@
 
 ## About
 
+NOTE: This project is deprecated and superseded by [ECGALAXY components](https://code.europa.eu/ecgalaxy).
+
 This Ansible playbook installs a working PHP development environment on
 [Amazon Linux 2 WorkSpaces](https://aws.amazon.com/workspaces/).
 
